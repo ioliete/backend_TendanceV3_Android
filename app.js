@@ -6,11 +6,14 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 
-
 var eventsRouter = require("./routes/events")
 var userRouter = require("./routes/user")
+const messagerieRouter = require("./routes/messagerie");
 
 var app = express();
+
+const fileUpload = require('express-fileupload');
+app.use(fileUpload());
 
 const cors = require('cors');
 app.use(cors());
@@ -21,9 +24,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-
-
-
+app.use("/messagerie", messagerieRouter);
 app.use('/events', eventsRouter);
 app.use('/user', userRouter); 
 

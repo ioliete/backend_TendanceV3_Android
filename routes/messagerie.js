@@ -6,7 +6,7 @@ require("../models/connection");
 
 const User = require("../models/users");                      
 const Event = require("../models/events");
-const Conversation = require('../models/conversation')
+const Conversation = require('../models/conversations')
 
 const uid2 = require("uid2");
 
