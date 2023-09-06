@@ -59,7 +59,7 @@ router.post("/publishEvent", async (req, res) => {
 
       newEvent.save().then(data => {
         User.findOneAndUpdate({_id:req.body.creatorName},{ $push: { 'events.partEvents': data._id } }).then(data=>{
-          console.log("update",data);
+          //console.log("update",data);
         res.json({result:true});
     })
       });
